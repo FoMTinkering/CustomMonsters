@@ -31,7 +31,7 @@ for (var proto of Object.keys(monsterPrototypes)) {
     option.innerHTML = proto;
     protoTypeSelector.appendChild(option);
 }
-protoTypeSelector.addEventListener("change", setTimeout(() => updateMonsterSelector(e), 10));
+protoTypeSelector.addEventListener("change", () => setTimeout(() => updateMonsterSelector(), 10));
 selector.appendChild(protoTypeSelector);
 
 var monsterSelector = document.createElement("select");
