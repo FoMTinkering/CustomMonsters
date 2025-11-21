@@ -50,7 +50,7 @@ function updateMonsterSelector() {
 }
 
 var displayButton = document.getElementById("displaymode")
-displayButton.addEventListener(() => switchDisplay(displayButton))
+displayButton.addEventListener("click", () => switchDisplay(displayButton))
 
 fetch("./Monsters/default.json")
     .then((response) => response.json())
