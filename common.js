@@ -39,8 +39,8 @@ selector.appendChild(monsterSelector);
 
 function updateMonsterSelector() {
     var proto = protoTypeSelector.value;
-    for (var child of monsterSelector.children)
-        monsterSelector.removeChild(child);
+    for (var i = monsterSelector.children.length-1; i >= 0; i--)
+        monsterSelector.remove()
     for (var monster of monsterPrototypes[proto]) {
         var option = document.createElement("option");
         option.value = monster;
@@ -52,6 +52,9 @@ function updateMonsterSelector() {
 var displayButton = document.getElementById("displaymode")
 displayButton.addEventListener("click", () => switchDisplay(displayButton))
 
+var defaultMonsters;
 fetch("./Monsters/default.json")
     .then((response) => response.json())
-    .then((json) => console.log(json));
+    .then((json) => defaultMonsters = json);
+
+

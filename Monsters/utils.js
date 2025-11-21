@@ -1,5 +1,5 @@
 
-const monsterPrototypes = {
+var monsterPrototypes = {
     "bat":["bat", "bat_blue"],
     "spirit":["spirit"],
     "mite":["stalagmite", "stalagmite_green", "stalagmite_purple"],
@@ -13,5 +13,8 @@ const monsterPrototypes = {
     "clod":["rockclod", "copperclod", "rockclod_blue", "ironclod", "rockclod_green", "silverclod", "rockclod_red", "goldclod", "rockclod_purple", "mistrilclod"]
 }
 
+var all_monsters = [];
+Object.values(monsterPrototypes).forEach((variants) => {all_monsters = all_monsters.concat(variants)});
+monsterPrototypes["all_monsters"] = all_monsters;
 
 export { monsterPrototypes };
