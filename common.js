@@ -39,7 +39,7 @@ selector.appendChild(monsterSelector);
 
 function updateMonsterSelector() {
     var proto = protoTypeSelector.value;
-    for (var i = monsterSelector.children.length-1; i >= 0; i--)
+    for (var i = monsterSelector.children.length-1; i > 0; i--)
         monsterSelector.remove()
     for (var monster of monsterPrototypes[proto]) {
         var option = document.createElement("option");
@@ -47,6 +47,7 @@ function updateMonsterSelector() {
         option.innerHTML = monster;
         monsterSelector.appendChild(option);
     }
+    monsterSelector.remove(0) // remove first one last to avoid nullifying the selector
 }
 
 var displayButton = document.getElementById("displaymode")
@@ -57,4 +58,14 @@ fetch("./Monsters/default.json")
     .then((response) => response.json())
     .then((json) => defaultMonsters = json);
 
+var availableMonsters;
+fetch("./Monsters/presets.json")
+    .then((response) => response.json())
+    .then((json) => availableMonsters = json);
+
+Object.keys(availableMonsters).forEach((monster) => {
+    availableMonsters["default"] = defaultMonsters[monster];
+});
+
+console.log(availableMonsters); // does this show all monsters?
 
