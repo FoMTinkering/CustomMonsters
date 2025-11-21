@@ -40,7 +40,7 @@ selector.appendChild(monsterSelector);
 
 function updateMonsterSelector() {
     var proto = protoTypeSelector.value;
-    for (child of monsterSelector.children)
+    for (var child of monsterSelector.children)
         monsterSelector.removeChild(child);
     for (var monster of Object.keys(monsterPrototypes[proto])) {
         var option = document.createElement("option");
