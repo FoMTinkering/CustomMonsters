@@ -5,7 +5,6 @@ const background = {
     "dark":"hsl(222, 32%, 15%)"
 }
 
-
 function switchDisplay(el) {
     if (el.innerHTML == "Dark Mode") {
         el.innerHTML = "Light Mode";
@@ -42,7 +41,7 @@ function updateMonsterSelector() {
     var proto = protoTypeSelector.value;
     for (var child of monsterSelector.children)
         monsterSelector.removeChild(child);
-    for (var monster of Object.keys(monsterPrototypes[proto])) {
+    for (var monster of monsterPrototypes[proto]) {
         var option = document.createElement("option");
         option.value = monster;
         option.innerHTML = monster;
@@ -50,4 +49,9 @@ function updateMonsterSelector() {
     }
 }
 
+var displayButton = document.getElementById("displaymode")
+displayButton.addEventListener(() => switchDisplay(displayButton))
 
+fetch("./Monsters/default.json")
+    .then((response) => response.json())
+    .then((json) => console.log(json));
