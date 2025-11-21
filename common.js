@@ -40,14 +40,14 @@ selector.appendChild(monsterSelector);
 function updateMonsterSelector() {
     var proto = protoTypeSelector.value;
     for (var i = monsterSelector.children.length-1; i > 0; i--)
-        monsterSelector.remove()
+        monsterSelector.removeChild(monsterSelector.children[0])
     for (var monster of monsterPrototypes[proto]) {
         var option = document.createElement("option");
         option.value = monster;
         option.innerHTML = monster;
         monsterSelector.appendChild(option);
     }
-    monsterSelector.remove(0) // remove first one last to avoid nullifying the selector
+    monsterSelector.removeChild(monsterSelector.children[0]) // remove first one last to avoid nullifying the selector
 }
 
 var displayButton = document.getElementById("displaymode")
@@ -61,11 +61,12 @@ fetch("./Monsters/default.json")
 var availableMonsters;
 fetch("./Monsters/presets.json")
     .then((response) => response.json())
-    .then((json) => availableMonsters = json);
+    .then((json) => {
+        availableMonsters = json;
+        Object.keys(availableMonsters).forEach((monster) => {
+            availableMonsters[monster]["default"] = defaultMonsters[monster];
+        });
+    });
 
-Object.keys(availableMonsters).forEach((monster) => {
-    availableMonsters["default"] = defaultMonsters[monster];
-});
-
-console.log(availableMonsters); // does this show all monsters?
+console.log(availableMonsters);
 
