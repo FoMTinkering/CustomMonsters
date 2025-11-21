@@ -28,17 +28,26 @@ protoTypeSelector.id = "proto-select";
 for (var proto of Object.keys(monsterPrototypes)) {
     var option = document.createElement("option");
     option.value = proto;
+    option.innerHTML = proto;
     protoTypeSelector.appendChild(option);
 }
-protoTypeSelector.addEventListener("change", (e) => updateMonsterSelector(e));
+protoTypeSelector.addEventListener("change", setTimeout(() => updateMonsterSelector(e), 10));
 selector.appendChild(protoTypeSelector);
 
 var monsterSelector = document.createElement("select");
 monsterSelector.id = "monster-select";
 selector.appendChild(monsterSelector);
 
-function updateMonsterSelector(e) {
-    console.log(e); // does this show the event?
+function updateMonsterSelector() {
+    var proto = protoTypeSelector.value;
+    for (child of monsterSelector.children)
+        monsterSelector.removeChild(child);
+    for (var monster of Object.keys(monsterPrototypes[proto])) {
+        var option = document.createElement("option");
+        option.value = monster;
+        option.innerHTML = monster;
+        monsterSelector.appendChild(option);
+    }
 }
 
 

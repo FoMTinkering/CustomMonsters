@@ -22,7 +22,7 @@ body {
     top:0%
 }
 
-.select {
+select {
     background-color: hsl(205, 55%, 83%);
     filter: brightness(0.95);
 }
