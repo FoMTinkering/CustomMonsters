@@ -54,20 +54,18 @@ var displayButton = document.getElementById("displaymode")
 displayButton.addEventListener("click", () => switchDisplay(displayButton))
 
 var defaultMonsters;
-var availableMonsters;
-fetch("./Monsters/default.json")
+var availableMonsters = fetch("./Monsters/default.json")
     .then((response) => response.json())
     .then((json) => defaultMonsters = json)
     .then(() => fetch("./Monsters/presets.json"))
     .then((response) => response.json())
     .then((json) => {
-        availableMonsters = json;
-        console.log(json);
+        var availableMonsters = json;
         Object.keys(availableMonsters).forEach((monster) => {
             availableMonsters[monster]["default"] = defaultMonsters[monster];
         });
+        return availableMonsters;
     });
 
-console.log(defaultMonsters);
 console.log(availableMonsters);
 
