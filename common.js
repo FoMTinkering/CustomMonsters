@@ -22,9 +22,10 @@ function switchDisplay(el) {
 
 var selector = document.getElementById("selector");
 
+var protoTypeSelector = document.createElement("select");
 for (var proto in Object.keys(monsterPrototypes)) {
     var option = document.createElement("option");
     option.value = proto;
-    selector.appendChild(option);
+    protoTypeSelector.appendChild(option);
 }
-    
+selector.appendChild(protoTypeSelector);
