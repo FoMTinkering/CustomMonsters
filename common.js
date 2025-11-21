@@ -20,12 +20,25 @@ function switchDisplay(el) {
     }
 }
 
+
 var selector = document.getElementById("selector");
 
 var protoTypeSelector = document.createElement("select");
-for (var proto in Object.keys(monsterPrototypes)) {
+protoTypeSelector.id = "proto-select";
+for (var proto of Object.keys(monsterPrototypes)) {
     var option = document.createElement("option");
     option.value = proto;
     protoTypeSelector.appendChild(option);
 }
+protoTypeSelector.addEventListener("change", (e) => updateMonsterSelector(e));
 selector.appendChild(protoTypeSelector);
+
+var monsterSelector = document.createElement("select");
+monsterSelector.id = "monster-select";
+selector.appendChild(monsterSelector);
+
+function updateMonsterSelector(e) {
+    console.log(e); // does this show the event?
+}
+
+
