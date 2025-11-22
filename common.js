@@ -2,23 +2,17 @@ import { monsterPrototypes } from "./Monsters/utils.js";
 import { monsterPresets } from "./Monsters/presets.js";
 import { defaultMonsters } from "./Monsters/default.js";
 
-const background = {
-    "light":"hsl(205, 55%, 83%)",
-    "dark":"hsl(222, 32%, 15%)"
-}
-
 function switchDisplay(el) {
-    if (el.innerHTML == "Dark Mode") {
-        el.innerHTML = "Light Mode";
-        document.body.style.backgroundColor = background["dark"];
-        el.style.backgroundColor = background["dark"];
-        el.style.color = background["light"];
-    } else {
-        el.innerHTML = "Dark Mode";
-        document.body.style.backgroundColor = background["light"];
-        el.style.backgroundColor = background["light"];
-        el.style.color = background["dark"];
-    }
+    el.innerHTML = el.innerHTML == "Dark Mode" ? "Light Mode" : "Dark Mode";
+    s = document.getElementById("stylesheet");
+
+    // make different stylesheet once I'm completely done
+    // if (s.getAttribute("class") == "page") {
+    //     s.href = s.href.includes("custommonsters_light.css") ? "../custommonsters_dark.css" : "../custommonsters_light.css";
+    // } else {
+    //     s.href = s.href.includes("custommonsters_light.css") ? "custommonsters_dark.css" : "custommonsters_light.css";
+    // }
+    
 }
 
 
@@ -48,7 +42,8 @@ presetSelector.id = "preset-select";
 // presetSelector.addEventListener("change", () => setTimeout(() => updatePresetSelector(), 10));
 presets.appendChild(presetSelector);
 
-
+var selectPresetButton = document.createElement("button");
+selectPresetButton.id = "select-preset-button";
 
 
 var displayButton = document.getElementById("displaymode")
@@ -80,7 +75,7 @@ function updatePresetSelector() {
     var isEmpty = presetSelector.children.length == 0;
     for (var i = presetSelector.children.length-1; i > 0; i--)
         presetSelector.removeChild(presetSelector.children[0])
-    for (var preset of availableMonsters[monster]) {
+    for (var preset of Object.keys(availableMonsters[monster])) {
         var option = document.createElement("option");
         option.value = preset;
         option.innerHTML = preset;
