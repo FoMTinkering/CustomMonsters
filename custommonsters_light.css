@@ -57,12 +57,12 @@ select {
 
 #monster-desc {
     background-color: hsl(205, 55%, 83%);;
-    position: relative;
+    position: absolute;
     overflow: hidden;
     border-style: dashed;
     border-width: 2;
-    top:12%;
-    height: 68%;
+    top:13%;
+    height: 66%;
     width: 43%;
     left:2%;
 }

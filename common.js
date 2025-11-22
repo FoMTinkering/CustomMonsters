@@ -118,7 +118,7 @@ function recolorPresets() {
     }
     if (presetSelector.value != "default") {
         [...monsterSelector.children].forEach((option) => {
-            if (option.value == monsterSelector.value)
+            if ((option.value == monsterSelector.value)  && (option.innerHTML[option.innerHTML.length-1] != "*"))
                 option.innerHTML += "*";
         })
     } else {
