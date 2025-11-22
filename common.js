@@ -1,4 +1,6 @@
 import { monsterPrototypes } from "./Monsters/utils.js";
+import monsterPresets from "./Monsters/presets.json"  assert { type: 'json' };
+import defaultMonsters from "./Monsters/default.json"  assert { type: 'json' };
 
 const background = {
     "light":"hsl(205, 55%, 83%)",
@@ -53,21 +55,9 @@ function updateMonsterSelector() {
 var displayButton = document.getElementById("displaymode")
 displayButton.addEventListener("click", () => switchDisplay(displayButton))
 
-var defaultMonsters;
-var availableMonsters;
-fetch("./Monsters/default.json")
-    .then((response) => response.json())
-    .then((json) => defaultMonsters = json)
-    .then(() => fetch("./Monsters/presets.json"))
-    .then((response) => response.json())
-    .then((json) => {
-        var tmp = json;
-        Object.keys(tmp).forEach((monster) => {
-            tmp[monster]["default"] = defaultMonsters[monster];
-        });
-        return availableMonsters;
-    })
-    .then((result) => {availableMonsters = result;})
-
+var availableMonsters = monsterPresets;
+Object.keys(availableMonsters).forEach((monster) => {
+    availableMonsters[monster]["default"] = defaultMonsters[monster];
+});
 console.log(availableMonsters);
 
