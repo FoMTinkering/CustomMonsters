@@ -93,7 +93,7 @@ function updatePresetSelector() {
         var option = document.createElement("option");
         option.value = preset;
         if (confirmedChoices[monster] == preset)
-            option.backgroundColor = "#cfffa482";
+            option.style.backgroundColor = "#cfffa482";
         option.innerHTML = preset;
         presetSelector.appendChild(option);
     }
@@ -123,7 +123,7 @@ function recolorPresets() {
         })
     } else {
         [...monsterSelector.children].forEach((option) => {
-            if (option.value == monsterSelector.value)
+            if ((option.value == monsterSelector.value) && (option.innerHTML[option.innerHTML.length-1] == "*") )
                 option.innerHTML = option.innerHTML.slice(0,-1);
         })
     }
