@@ -30,10 +30,6 @@ select {
     font-family: "Consolas";
 }
 
-select option:hover {
-    box-shadow: 0 0 10px 100px hsl(204, 40%, 58%) inset;
-}
-
 
 #preset-selector {
     background-color: hsl(205, 55%, 83%);;

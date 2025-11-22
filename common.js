@@ -44,13 +44,13 @@ presets.appendChild(presetSelector);
 
 var selectPresetButton = document.createElement("button");
 selectPresetButton.id = "select-preset-button";
-selectPresetButton.addEventListener("click", confirmPreset());
+selectPresetButton.addEventListener("click", () => confirmPreset());
 presets.appendChild(selectPresetButton);
 
 var displayButton = document.getElementById("displaymode")
 displayButton.addEventListener("click", () => switchDisplay(displayButton))
 
-var availableMonsters = monsterPresets;
+const availableMonsters = monsterPresets;
 Object.keys(availableMonsters).forEach((monster) => {
     availableMonsters[monster]["default"] = defaultMonsters[monster];
 });
@@ -59,10 +59,10 @@ Object.keys(availableMonsters).forEach((monster) => {
 
 
 
-var confirmedChoices = {};
+const confirmedChoices = {};
 Object.keys(monsterPrototypes["all_monsters"]).forEach((monster) => {
     confirmedChoices[monster] = "default";
-})
+});
 
 function updateMonsterSelector() {
     var proto = prototypeSelector.value;
