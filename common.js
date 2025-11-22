@@ -23,24 +23,45 @@ function switchDisplay(el) {
 
 
 var selector = document.getElementById("selector");
+var presets = document.getElementById("preset-selector");
 
-var protoTypeSelector = document.createElement("select");
-protoTypeSelector.id = "proto-select";
+
+var prototypeSelector = document.createElement("select");
+prototypeSelector.id = "proto-select";
 for (var proto of Object.keys(monsterPrototypes)) {
     var option = document.createElement("option");
     option.value = proto;
     option.innerHTML = proto;
-    protoTypeSelector.appendChild(option);
+    prototypeSelector.appendChild(option);
 }
-protoTypeSelector.addEventListener("change", () => setTimeout(() => updateMonsterSelector(), 10));
-selector.appendChild(protoTypeSelector);
+prototypeSelector.addEventListener("change", () => setTimeout(() => updateMonsterSelector(), 10));
+selector.appendChild(prototypeSelector);
 
 var monsterSelector = document.createElement("select");
 monsterSelector.id = "monster-select";
+monsterSelector.addEventListener("change", () => setTimeout(() => updatePresetSelector(), 10));
 selector.appendChild(monsterSelector);
 
+var presetSelector = document.createElement("select");
+presetSelector.size = 1;
+presetSelector.id = "preset-select";
+// presetSelector.addEventListener("change", () => setTimeout(() => updatePresetSelector(), 10));
+presets.appendChild(presetSelector);
+
+
+
+
+var displayButton = document.getElementById("displaymode")
+displayButton.addEventListener("click", () => switchDisplay(displayButton))
+
+var availableMonsters = monsterPresets;
+Object.keys(availableMonsters).forEach((monster) => {
+    availableMonsters[monster]["default"] = defaultMonsters[monster];
+});
+
+
 function updateMonsterSelector() {
-    var proto = protoTypeSelector.value;
+    var proto = prototypeSelector.value;
     for (var i = monsterSelector.children.length-1; i > 0; i--)
         monsterSelector.removeChild(monsterSelector.children[0])
     for (var monster of monsterPrototypes[proto]) {
@@ -52,12 +73,17 @@ function updateMonsterSelector() {
     monsterSelector.removeChild(monsterSelector.children[0]) // remove first one last to avoid nullifying the selector
 }
 
-var displayButton = document.getElementById("displaymode")
-displayButton.addEventListener("click", () => switchDisplay(displayButton))
+function updatePresetSelector() {
+    var monster = monsterSelector.value;
+    for (var i = presetSelector.children.length-1; i > 0; i--)
+        presetSelector.removeChild(presetSelector.children[0])
+    for (var preset of availableMonsters[monster]) {
+        var option = document.createElement("option");
+        option.value = preset;
+        option.innerHTML = preset;
+        presetSelector.appendChild(option);
+    }
+    presetSelector.removeChild(presetSelector.children[0]) // remove first one last to avoid nullifying the selector
+}
 
-var availableMonsters = monsterPresets;
-Object.keys(availableMonsters).forEach((monster) => {
-    availableMonsters[monster]["default"] = defaultMonsters[monster];
-});
-console.log(availableMonsters);
 

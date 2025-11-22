@@ -38,7 +38,7 @@ select {
 }
 
 
-.preset-select {
+.preset-selector {
     background-color: hsl(205, 55%, 83%);;
     position: absolute;
     overflow: hidden;
