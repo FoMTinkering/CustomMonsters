@@ -67,6 +67,7 @@ Object.keys(monsterPrototypes["all_monsters"]).forEach((monster) => {
 });
 
 function updateMonsterSelector() {
+    console.log(confirmedChoices);
     var proto = prototypeSelector.value;
     var isEmpty = monsterSelector.children.length == 0;
     for (var i = monsterSelector.children.length-1; i > 0; i--)
@@ -99,7 +100,6 @@ function updatePresetSelector() {
     if (!isEmpty)
         presetSelector.removeChild(presetSelector.children[0]) // remove first one last to avoid nullifying the selector
     presetSelector.size = presetSelector.children.length;
-    recolorPresets();
 }
 
 function confirmPreset() {
