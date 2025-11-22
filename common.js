@@ -62,7 +62,7 @@ Object.keys(availableMonsters).forEach((monster) => {
 
 
 const confirmedChoices = {};
-Object.keys(monsterPrototypes["all_monsters"]).forEach((monster) => {
+monsterPrototypes["all_monsters"].forEach((monster) => {
     confirmedChoices[monster] = "default";
 });
 
@@ -106,7 +106,7 @@ function confirmPreset() {
     var preset = presetSelector.value;
     var monster = monsterSelector.value;
     confirmedChoices[monster] = preset;
-    recolorPresets();
+    setTimeout(() => recolorPresets(), 10);
 }
 
 function recolorPresets() {
@@ -118,12 +118,12 @@ function recolorPresets() {
     }
     if (presetSelector.value != "default") {
         [...monsterSelector.children].forEach((option) => {
-            if (option == monsterSelector.value)
+            if (option.value == monsterSelector.value)
                 option.innerHTML += "*";
         })
     } else {
         [...monsterSelector.children].forEach((option) => {
-            if (option == monsterSelector.value)
+            if (option.value == monsterSelector.value)
                 option.innerHTML = option.innerHTML.slice(0,-1);
         })
     }
