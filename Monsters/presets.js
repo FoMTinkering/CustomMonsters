@@ -1,4 +1,4 @@
-{
+var monsterPresets = {
     "bat": {},
     "bat_blue": {},
     "spirit": {
@@ -1291,3 +1291,5 @@
     },
     "mistrilclod": {}
 }
+
+export { monsterPresets }

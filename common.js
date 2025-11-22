@@ -1,6 +1,6 @@
 import { monsterPrototypes } from "./Monsters/utils.js";
-import monsterPresets from "./Monsters/presets.json"  assert { type: 'json' };
-import defaultMonsters from "./Monsters/default.json"  assert { type: 'json' };
+import { monsterPresets } from "./Monsters/presets.js";
+import { defaultMonsters } from "./Monsters/default.js";
 
 const background = {
     "light":"hsl(205, 55%, 83%)",

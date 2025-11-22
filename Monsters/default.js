@@ -1,4 +1,4 @@
-{
+var defaultMonsters = {
     "rockclod": {
         "hp": 8,
         "damage": 10,
@@ -2772,3 +2772,7 @@
         }
     }
 }
+
+
+
+export { defaultMonsters }
