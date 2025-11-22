@@ -1,4 +1,4 @@
-import { monsterPrototypes } from "./Monsters/utils.js";
+import { monsterPrototypes, monsterToPrototype } from "./Monsters/utils.js";
 import { monsterPresets } from "./Monsters/presets.js";
 import { defaultMonsters } from "./Monsters/default.js";
 
@@ -44,7 +44,8 @@ presets.appendChild(presetSelector);
 
 var selectPresetButton = document.createElement("button");
 selectPresetButton.id = "select-preset-button";
-
+selectPresetButton.addEventListener("click", confirmPreset());
+presets.appendChild(selectPresetButton);
 
 var displayButton = document.getElementById("displaymode")
 displayButton.addEventListener("click", () => switchDisplay(displayButton))
@@ -54,6 +55,14 @@ Object.keys(availableMonsters).forEach((monster) => {
     availableMonsters[monster]["default"] = defaultMonsters[monster];
 });
 
+
+
+
+
+var confirmedChoices = {};
+Object.keys(monsterPrototypes["all_monsters"]).forEach((monster) => {
+    confirmedChoices[monster] = "default";
+})
 
 function updateMonsterSelector() {
     var proto = prototypeSelector.value;
@@ -83,6 +92,23 @@ function updatePresetSelector() {
     }
     if (!isEmpty)
         presetSelector.removeChild(presetSelector.children[0]) // remove first one last to avoid nullifying the selector
+    presetSelector.size = presetSelector.children.length;
+    recolorPresets();
 }
 
+function confirmPreset() {
+    var preset = presetSelector.value;
+    var monster = monsterSelector.value;
+    confirmedChoices[monster] = preset;
+    recolorPresets();
+}
+
+function recolorPresets() {
+    for (var option in presetSelector.children) {
+        if (option.value == presetSelector.value)
+            option.style.backgroundColor = "#00fcff80";
+        else
+            option.style.backgroundColor = "";
+    }
+}
 

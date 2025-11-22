@@ -31,7 +31,7 @@ select {
 }
 
 select option:hover {
-    background-color: hsl(204, 45%, 67%);
+    box-shadow: 0 0 10px 100px hsl(204, 40%, 58%) inset;
 }
 
 

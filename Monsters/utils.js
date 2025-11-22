@@ -13,8 +13,16 @@ var monsterPrototypes = {
     "clod":["rockclod", "copperclod", "rockclod_blue", "ironclod", "rockclod_green", "silverclod", "rockclod_red", "goldclod", "rockclod_purple", "mistrilclod"]
 }
 
+var monsterToPrototype = {};
 var all_monsters = [];
 Object.values(monsterPrototypes).forEach((variants) => {all_monsters = all_monsters.concat(variants)});
+all_monsters.forEach((monster) => {
+    Object.keys(monsterPrototypes).forEach((variant) => {
+        if (monsterPrototypes[variant].includes(monster))
+            monsterToPrototype[monster] = variant;
+    })    
+})
+
 monsterPrototypes["all_monsters"] = all_monsters;
 
-export { monsterPrototypes };
+export { monsterPrototypes, monsterToPrototype };
