@@ -31,7 +31,7 @@ for (var proto of Object.keys(monsterPrototypes)) {
 prototypeSelector.addEventListener("change", () => setTimeout(() => updateMonsterSelector(), 10));
 selector.appendChild(prototypeSelector);
 
-var monsterSelector = document.createElement("select");
+const monsterSelector = document.createElement("select");
 monsterSelector.id = "monster-select";
 monsterSelector.addEventListener("change", () => setTimeout(() => updatePresetSelector(), 10));
 selector.appendChild(monsterSelector);
@@ -91,6 +91,8 @@ function updatePresetSelector() {
     for (var preset of Object.keys(availableMonsters[monster])) {
         var option = document.createElement("option");
         option.value = preset;
+        if (confirmedChoices[monster] == preset)
+            option.backgroundColor = "#cfffa482";
         option.innerHTML = preset;
         presetSelector.appendChild(option);
     }
@@ -115,12 +117,12 @@ function recolorPresets() {
             option.style.backgroundColor = "";
     }
     if (presetSelector.value != "default") {
-        monsterSelector.children.forEach((option) => {
+        [...monsterSelector.children].forEach((option) => {
             if (option == monsterSelector.value)
                 option.innerHTML += "*";
         })
     } else {
-        monsterSelector.children.forEach((option) => {
+        [...monsterSelector.children].forEach((option) => {
             if (option == monsterSelector.value)
                 option.innerHTML = option.innerHTML.slice(0,-1);
         })
