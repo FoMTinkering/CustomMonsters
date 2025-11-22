@@ -62,6 +62,7 @@ Object.keys(availableMonsters).forEach((monster) => {
 
 function updateMonsterSelector() {
     var proto = prototypeSelector.value;
+    var isEmpty = monsterSelector.children.length == 0;
     for (var i = monsterSelector.children.length-1; i > 0; i--)
         monsterSelector.removeChild(monsterSelector.children[0])
     for (var monster of monsterPrototypes[proto]) {
@@ -70,11 +71,13 @@ function updateMonsterSelector() {
         option.innerHTML = monster;
         monsterSelector.appendChild(option);
     }
-    monsterSelector.removeChild(monsterSelector.children[0]) // remove first one last to avoid nullifying the selector
+    if (!isEmpty)
+        monsterSelector.removeChild(monsterSelector.children[0]) // remove first one last to avoid nullifying the selector
 }
 
 function updatePresetSelector() {
     var monster = monsterSelector.value;
+    var isEmpty = presetSelector.children.length == 0;
     for (var i = presetSelector.children.length-1; i > 0; i--)
         presetSelector.removeChild(presetSelector.children[0])
     for (var preset of availableMonsters[monster]) {
@@ -83,7 +86,8 @@ function updatePresetSelector() {
         option.innerHTML = preset;
         presetSelector.appendChild(option);
     }
-    presetSelector.removeChild(presetSelector.children[0]) // remove first one last to avoid nullifying the selector
+    if (!isEmpty)
+        presetSelector.removeChild(presetSelector.children[0]) // remove first one last to avoid nullifying the selector
 }
 
 
