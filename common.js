@@ -36,18 +36,20 @@ monsterSelector.id = "monster-select";
 monsterSelector.addEventListener("change", () => setTimeout(() => updatePresetSelector(), 10));
 selector.appendChild(monsterSelector);
 
-var presetSelector = document.createElement("select");
+const presetSelector = document.createElement("select");
 presetSelector.size = 1;
 presetSelector.id = "preset-select";
 // presetSelector.addEventListener("change", () => setTimeout(() => updatePresetSelector(), 10));
 presets.appendChild(presetSelector);
 
-var selectPresetButton = document.createElement("button");
+const selectPresetButton = document.createElement("button");
 selectPresetButton.id = "select-preset-button";
+selectPresetButton.innerHTML = "Confirm Choice";
+
 selectPresetButton.addEventListener("click", () => confirmPreset());
 presets.appendChild(selectPresetButton);
 
-var displayButton = document.getElementById("displaymode")
+const displayButton = document.getElementById("displaymode")
 displayButton.addEventListener("click", () => switchDisplay(displayButton))
 
 const availableMonsters = monsterPresets;
@@ -73,6 +75,8 @@ function updateMonsterSelector() {
         var option = document.createElement("option");
         option.value = monster;
         option.innerHTML = monster;
+        if (confirmedChoices[monster] != "default")
+            option.innerHTML += "*";
         monsterSelector.appendChild(option);
     }
     if (!isEmpty)
@@ -104,11 +108,22 @@ function confirmPreset() {
 }
 
 function recolorPresets() {
-    for (var option in presetSelector.children) {
+    for (var option of presetSelector.children) {
         if (option.value == presetSelector.value)
-            option.style.backgroundColor = "#00fcff80";
+            option.style.backgroundColor = "#cfffa482";
         else
             option.style.backgroundColor = "";
+    }
+    if (presetSelector.value != "default") {
+        monsterSelector.children.forEach((option) => {
+            if (option == monsterSelector.value)
+                option.innerHTML += "*";
+        })
+    } else {
+        monsterSelector.children.forEach((option) => {
+            if (option == monsterSelector.value)
+                option.innerHTML = option.innerHTML.slice(0,-1);
+        })
     }
 }
 
