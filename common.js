@@ -93,8 +93,7 @@ function updateMonsterSelector() {
     }
     if (!isEmpty)
         monsterSelector.removeChild(monsterSelector.children[0]) // remove first one last to avoid nullifying the selector
-    if (presetSelector.children.length == 1)
-        updatePresetSelector()
+    updatePresetSelector()
 }
 
 function updatePresetSelector() {
