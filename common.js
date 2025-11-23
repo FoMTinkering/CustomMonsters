@@ -124,7 +124,8 @@ function confirmPreset() {
 function exportPreset() {
     // thanks to https://stackoverflow.com/a/30800715
     var preset = presetSelector.value;
-    var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(availableMonsters[preset]));
+    var monster = monsterSelector.value;
+    var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(availableMonsters[monster][preset]));
     exportPresetLink.setAttribute("href",     dataStr     );
     exportPresetLink.setAttribute("download", preset+".json");
     exportPresetLink.click()
