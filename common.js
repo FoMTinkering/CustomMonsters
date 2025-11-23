@@ -42,12 +42,24 @@ presetSelector.id = "preset-select";
 // presetSelector.addEventListener("change", () => setTimeout(() => updatePresetSelector(), 10));
 presets.appendChild(presetSelector);
 
+
+const presetButtonsDiv = document.createElement("div");
+presetButtonsDiv.id = "presets-buttons-wrapper";
+presets.appendChild(presetButtonsDiv);
+
 const selectPresetButton = document.createElement("button");
 selectPresetButton.id = "select-preset-button";
 selectPresetButton.innerHTML = "Confirm Choice";
-
 selectPresetButton.addEventListener("click", () => confirmPreset());
-presets.appendChild(selectPresetButton);
+presetButtonsDiv.appendChild(selectPresetButton);
+
+const exportPresetButton = document.createElement("button");
+const exportPresetLink = document.createElement("a");
+exportPresetButton.id = "export-preset-button";
+exportPresetButton.innerHTML = "Export Preset";
+exportPresetButton.addEventListener("click", () => exportPreset());
+presetButtonsDiv.appendChild(exportPresetButton);
+
 
 const displayButton = document.getElementById("displaymode")
 displayButton.addEventListener("click", () => switchDisplay(displayButton))
@@ -108,6 +120,17 @@ function confirmPreset() {
     confirmedChoices[monster] = preset;
     setTimeout(() => recolorPresets(), 10);
 }
+
+function exportPreset() {
+    // thanks to https://stackoverflow.com/a/30800715
+    var preset = presetSelector.value;
+    var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(availableMonsters[preset]));
+    exportPresetLink.setAttribute("href",     dataStr     );
+    dlAnchorElem.setAttribute("download", preset+".json");
+    exportPresetLink.click()
+}
+
+
 
 function recolorPresets() {
     for (var option of presetSelector.children) {
