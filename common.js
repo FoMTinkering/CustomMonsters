@@ -79,7 +79,6 @@ monsterPrototypes["all_monsters"].forEach((monster) => {
 });
 
 function updateMonsterSelector() {
-    console.log(confirmedChoices);
     var proto = prototypeSelector.value;
     var isEmpty = monsterSelector.children.length == 0;
     for (var i = monsterSelector.children.length-1; i > 0; i--)
@@ -94,6 +93,8 @@ function updateMonsterSelector() {
     }
     if (!isEmpty)
         monsterSelector.removeChild(monsterSelector.children[0]) // remove first one last to avoid nullifying the selector
+    if (presetSelector.children.length == 1)
+        updatePresetSelector()
 }
 
 function updatePresetSelector() {
@@ -129,6 +130,10 @@ function exportPreset() {
     exportPresetLink.setAttribute("href",     dataStr     );
     exportPresetLink.setAttribute("download", preset+".json");
     exportPresetLink.click()
+}
+
+function exportMod() {
+    // todo, compile everything into a single json
 }
 
 
