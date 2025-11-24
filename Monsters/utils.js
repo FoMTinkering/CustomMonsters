@@ -20,9 +20,23 @@ all_monsters.forEach((monster) => {
     Object.keys(monsterPrototypes).forEach((variant) => {
         if (monsterPrototypes[variant].includes(monster))
             monsterToPrototype[monster] = variant;
-    })    
+    })
 })
+
+function parseMonsters(monsters) {
+    var fiddle = {};
+    fiddle["monsters"] = {};
+    Object.keys(monsters).forEach((monster) => {
+        var proto = monsterToPrototype[monster];
+        fiddle["monsters"][proto] = {};
+        fiddle["monsters/"+proto] = {};
+        fiddle["monsters"][proto][monster] = monsters[proto][monster];
+        fiddle["monsters"+proto][monster] = monsters[proto][monster];
+        fiddle["monsters/"+proto+"/"+monster] = monsters[proto][monster];
+    });
+    return fiddle;
+}
 
 monsterPrototypes["all_monsters"] = all_monsters;
 
-export { monsterPrototypes, monsterToPrototype };
+export { monsterPrototypes, monsterToPrototype, parseMonsters };

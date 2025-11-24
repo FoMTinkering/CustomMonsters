@@ -1,4 +1,4 @@
-import { monsterPrototypes, monsterToPrototype } from "./Monsters/utils.js";
+import { monsterPrototypes, monsterToPrototype, parseMonsters } from "./Monsters/utils.js";
 import { monsterPresets } from "./Monsters/presets.js";
 import { defaultMonsters } from "./Monsters/default.js";
 
@@ -18,7 +18,7 @@ function switchDisplay(el) {
 
 var selector = document.getElementById("selector");
 var presets = document.getElementById("preset-selector");
-
+var exportDiv = document.getElementById("export");
 
 var prototypeSelector = document.createElement("select");
 prototypeSelector.id = "proto-select";
@@ -59,6 +59,15 @@ exportPresetButton.id = "export-preset-button";
 exportPresetButton.innerHTML = "Export Preset";
 exportPresetButton.addEventListener("click", () => exportPreset());
 presetButtonsDiv.appendChild(exportPresetButton);
+
+
+const exportModButton = document.createElement("button");
+const exportModLink = document.createElement("a");
+exportModButton.id = "export-mod-button";
+exportModButton.innerHTML = "Export Mod";
+exportModButton.addEventListener("click", () => exportMod());
+exportDiv.appendChild(exportModButton);
+
 
 
 const displayButton = document.getElementById("displaymode")
@@ -132,7 +141,15 @@ function exportPreset() {
 }
 
 function exportMod() {
-    // todo, compile everything into a single json
+    var fiddle = {};
+    Object.keys(confirmedChoices).forEach((monster) => {
+        fiddle[monster] = availableMonsters[monsterToPrototype[monster]][monster]
+    })
+    fiddle = parseMonsters(fiddle);
+    var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(fiddle));
+    exportModLink.setAttribute("href",     dataStr     );
+    exportModLink.setAttribute("download", "__fiddle__.json");
+    exportModLink.click()
 }
 
 
