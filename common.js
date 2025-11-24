@@ -142,8 +142,11 @@ function exportPreset() {
 
 function exportMod() {
     var fiddle = {};
+    console.log(confirmedChoices);
+    console.log(availableMonsters);
     Object.keys(confirmedChoices).forEach((monster) => {
-        fiddle[monster] = availableMonsters[monsterToPrototype[monster]][monster]
+        var preset = confirmedChoices[monster];
+        fiddle[monster] = availableMonsters[monster][preset];
     })
     fiddle = parseMonsters(fiddle);
     var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(fiddle));
