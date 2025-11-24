@@ -33,7 +33,7 @@ function parseMonsters(monsters) {
         if (!Object.keys(fiddle).includes("monsters/"+proto))
             fiddle["monsters/"+proto] = {};
         fiddle["monsters"][proto][monster] = monsters[monster];
-        fiddle["monsters"+proto][monster] = monsters[monster];
+        fiddle["monsters/"+proto][monster] = monsters[monster];
         fiddle["monsters/"+proto+"/"+monster] = monsters[monster];
     });
     return fiddle;
