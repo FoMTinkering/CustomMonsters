@@ -28,11 +28,13 @@ function parseMonsters(monsters) {
     fiddle["monsters"] = {};
     Object.keys(monsters).forEach((monster) => {
         var proto = monsterToPrototype[monster];
-        fiddle["monsters"][proto] = {};
-        fiddle["monsters/"+proto] = {};
-        fiddle["monsters"][proto][monster] = monsters[proto][monster];
-        fiddle["monsters"+proto][monster] = monsters[proto][monster];
-        fiddle["monsters/"+proto+"/"+monster] = monsters[proto][monster];
+        if (!Object.keys(fiddle["monsters"]).includes(proto))
+            fiddle["monsters"][proto] = {};
+        if (!Object.keys(fiddle).includes("monsters/"+proto))
+            fiddle["monsters/"+proto] = {};
+        fiddle["monsters"][proto][monster] = monsters[monster];
+        fiddle["monsters"+proto][monster] = monsters[monster];
+        fiddle["monsters/"+proto+"/"+monster] = monsters[monster];
     });
     return fiddle;
 }

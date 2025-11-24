@@ -83,6 +83,7 @@ select {
     width: 100%;
     bottom: 0;
     position: absolute;
+    padding-left: 2%;
     height: 12%;
     left: 0;
 }
