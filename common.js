@@ -36,15 +36,14 @@ monsterSelector.id = "monster-select";
 monsterSelector.addEventListener("change", () => setTimeout(() => updatePresetSelector(), 10));
 selector.appendChild(monsterSelector);
 
+const monsterGif = document.getElementById("monster-gif");
 const presetSelector = document.createElement("select");
 presetSelector.size = 1;
 presetSelector.id = "preset-select";
 presetSelector.addEventListener("change", () => setTimeout(() => {
     var preset = presetSelector.value;
-    if (Object.keys(presetGifs).includes(preset)) {
-        console.log(presets)
-        console.log(presetGifs[preset]);
-    }
+    if (Object.keys(presetGifs).includes(preset))
+        monsterGif.src = presetGifs[preset];
 }, 10));
 // presetSelector.addEventListener("change", () => setTimeout(() => updatePresetSelector(), 10));
 presets.appendChild(presetSelector);
@@ -86,7 +85,7 @@ Object.keys(availableMonsters).forEach((monster) => {
 });
 
 
-const monsterGif = document.getElementById("monster-gif");
+
 
 
 const confirmedChoices = {};
