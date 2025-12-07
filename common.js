@@ -1,5 +1,5 @@
 import { monsterPrototypes, monsterToPrototype, parseMonsters } from "./Monsters/utils.js";
-import { monsterPresets } from "./Monsters/presets.js";
+import { monsterPresets, presetGifs } from "./Monsters/presets.js";
 import { defaultMonsters } from "./Monsters/default.js";
 
 function switchDisplay(el) {
@@ -79,7 +79,7 @@ Object.keys(availableMonsters).forEach((monster) => {
 });
 
 
-
+const monsterGif = document.getElementById("monster-gif");
 
 
 const confirmedChoices = {};
@@ -113,6 +113,9 @@ function updatePresetSelector() {
     for (var preset of Object.keys(availableMonsters[monster])) {
         var option = document.createElement("option");
         option.value = preset;
+        option.addEventListener("click", () => {
+            monsterGif.src = presetGifs[preset];
+        });
         if (confirmedChoices[monster] == preset)
             option.style.backgroundColor = "#cfffa482";
         option.innerHTML = preset;

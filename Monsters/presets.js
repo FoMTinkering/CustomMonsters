@@ -23,7 +23,7 @@ var monsterPresets = {
                 4000
             ],
             "projectile_turn_rate": 10.0,
-            "projectile_speed": 0.3,
+            "projectile_speed": 0.8,
             "projectile_damage": 30,
             "drops": [
                 {
@@ -107,10 +107,702 @@ var monsterPresets = {
     },
     "stalagmite": {},
     "stalagmite_green": {},
-    "stalagmite_purple": {},
+    "stalagmite_purple": {
+        "noescape": {
+            "hp": 42,
+            "damage": 35,
+            "essence": 15,
+            "coin_count": [
+                5,
+                10
+            ],
+            "speed": 4,
+            "secondary_spikes": [
+                [
+                    16,
+                    0
+                ],
+                [
+                    -5,
+                    16
+                ],
+                [
+                    -17,
+                    -10
+                ],
+                [
+                    14,
+                    -15
+                ],
+                [
+                    10,
+                    18
+                ],
+                [
+                    -23,
+                    5
+                ],
+                [
+                    -1,
+                    -25
+                ],
+                [
+                    24,
+                    6
+                ],
+                [
+                    -14,
+                    23
+                ],
+                [
+                    -21,
+                    -21
+                ],
+                [
+                    25,
+                    -16
+                ],
+                [
+                    8,
+                    30
+                ],
+                [
+                    -33,
+                    0
+                ],
+                [
+                    8,
+                    -34
+                ],
+                [
+                    30,
+                    17
+                ],
+                [
+                    -27,
+                    26
+                ],
+                [
+                    -20,
+                    -34
+                ],
+                [
+                    38,
+                    -11
+                ],
+                [
+                    -1,
+                    41
+                ],
+                [
+                    -42,
+                    -12
+                ],
+                [
+                    21,
+                    -39
+                ],
+                [
+                    32,
+                    32
+                ],
+                [
+                    -41,
+                    23
+                ],
+                [
+                    -13,
+                    -47
+                ],
+                [
+                    49,
+                    -1
+                ],
+                [
+                    -14,
+                    49
+                ],
+                [
+                    -46,
+                    -27
+                ],
+                [
+                    38,
+                    -39
+                ],
+                [
+                    27,
+                    47
+                ],
+                [
+                    -55,
+                    14
+                ],
+                [
+                    -1,
+                    -58
+                ],
+                [
+                    57,
+                    15
+                ],
+                [
+                    -31,
+                    52
+                ],
+                [
+                    -44,
+                    -44
+                ],
+                [
+                    55,
+                    -32
+                ],
+                [
+                    16,
+                    62
+                ],
+                [
+                    -67,
+                    -1
+                ],
+                [
+                    17,
+                    -66
+                ],
+                [
+                    59,
+                    34
+                ],
+                [
+                    -50,
+                    49
+                ],
+                [
+                    -37,
+                    -63
+                ],
+                [
+                    70,
+                    -19
+                ],
+                [
+                    0,
+                    74
+                ],
+                [
+                    -74,
+                    -20
+                ],
+                [
+                    38,
+                    -68
+                ],
+                [
+                    55,
+                    55
+                ],
+                [
+                    -70,
+                    40
+                ],
+                [
+                    -22,
+                    -80
+                ],
+                [
+                    83,
+                    -1
+                ],
+                [
+                    -22,
+                    81
+                ],
+                [
+                    -75,
+                    -44
+                ],
+                [
+                    61,
+                    -62
+                ],
+                [
+                    44,
+                    76
+                ],
+                [
+                    -88,
+                    23
+                ],
+                [
+                    0,
+                    -92
+                ],
+                [
+                    89,
+                    24
+                ],
+                [
+                    -48,
+                    81
+                ],
+                [
+                    -68,
+                    -68
+                ],
+                [
+                    84,
+                    -49
+                ],
+                [
+                    25,
+                    95
+                ],
+                [
+                    -100,
+                    0
+                ],
+                [
+                    26,
+                    -98
+                ],
+                [
+                    89,
+                    51
+                ],
+                [
+                    -74,
+                    73
+                ],
+                [
+                    -53,
+                    -92
+                ],
+                [
+                    103,
+                    -28
+                ],
+                [
+                    0,
+                    108
+                ],
+                [
+                    -107,
+                    -29
+                ],
+                [
+                    55,
+                    -97
+                ],
+                [
+                    79,
+                    79
+                ],
+                [
+                    -99,
+                    57
+                ],
+                [
+                    -30,
+                    -112
+                ],
+                [
+                    -16,
+                    0
+                ],
+                [
+                    4,
+                    -17
+                ],
+                [
+                    16,
+                    9
+                ],
+                [
+                    -15,
+                    14
+                ],
+                [
+                    -11,
+                    -19
+                ],
+                [
+                    22,
+                    -6
+                ],
+                [
+                    0,
+                    24
+                ],
+                [
+                    -25,
+                    -7
+                ],
+                [
+                    13,
+                    -24
+                ],
+                [
+                    20,
+                    20
+                ],
+                [
+                    -26,
+                    15
+                ],
+                [
+                    -9,
+                    -31
+                ],
+                [
+                    32,
+                    -1
+                ],
+                [
+                    -9,
+                    33
+                ],
+                [
+                    -31,
+                    -18
+                ],
+                [
+                    26,
+                    -27
+                ],
+                [
+                    19,
+                    33
+                ],
+                [
+                    -39,
+                    10
+                ],
+                [
+                    0,
+                    -42
+                ],
+                [
+                    41,
+                    11
+                ],
+                [
+                    -22,
+                    38
+                ],
+                [
+                    -33,
+                    -33
+                ],
+                [
+                    40,
+                    -24
+                ],
+                [
+                    12,
+                    46
+                ],
+                [
+                    -50,
+                    0
+                ],
+                [
+                    13,
+                    -50
+                ],
+                [
+                    45,
+                    26
+                ],
+                [
+                    -39,
+                    38
+                ],
+                [
+                    -28,
+                    -48
+                ],
+                [
+                    54,
+                    -15
+                ],
+                [
+                    0,
+                    58
+                ],
+                [
+                    -58,
+                    -16
+                ],
+                [
+                    30,
+                    -53
+                ],
+                [
+                    43,
+                    43
+                ],
+                [
+                    -56,
+                    31
+                ],
+                [
+                    -17,
+                    -63
+                ],
+                [
+                    66,
+                    0
+                ],
+                [
+                    -18,
+                    65
+                ],
+                [
+                    -60,
+                    -35
+                ],
+                [
+                    49,
+                    -50
+                ],
+                [
+                    36,
+                    62
+                ],
+                [
+                    -71,
+                    18
+                ],
+                [
+                    -1,
+                    -75
+                ],
+                [
+                    73,
+                    19
+                ],
+                [
+                    -39,
+                    67
+                ],
+                [
+                    -56,
+                    -56
+                ],
+                [
+                    69,
+                    -41
+                ],
+                [
+                    21,
+                    79
+                ],
+                [
+                    -84,
+                    0
+                ],
+                [
+                    21,
+                    -82
+                ],
+                [
+                    74,
+                    43
+                ],
+                [
+                    -62,
+                    61
+                ],
+                [
+                    -45,
+                    -77
+                ],
+                [
+                    87,
+                    -24
+                ],
+                [
+                    -1,
+                    91
+                ],
+                [
+                    -90,
+                    -25
+                ],
+                [
+                    47,
+                    -82
+                ],
+                [
+                    67,
+                    67
+                ],
+                [
+                    -85,
+                    48
+                ],
+                [
+                    -26,
+                    -96
+                ],
+                [
+                    100,
+                    -1
+                ],
+                [
+                    -27,
+                    97
+                ],
+                [
+                    -90,
+                    -52
+                ],
+                [
+                    73,
+                    -74
+                ],
+                [
+                    52,
+                    91
+                ],
+                [
+                    -104,
+                    27
+                ],
+                [
+                    -1,
+                    -109
+                ],
+                [
+                    106,
+                    28
+                ],
+                [
+                    -56,
+                    96
+                ],
+                [
+                    -80,
+                    -80
+                ],
+                [
+                    98,
+                    -58
+                ],
+                [
+                    29,
+                    111
+                ]
+            ],
+            "drops": [
+                {
+                    "item": "ore_gold",
+                    "chance": 70,
+                    "count_range": [
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "item": "monster_horn",
+                    "chance": 30,
+                    "count_range": [
+                        1,
+                        3
+                    ]
+                },
+                {
+                    "cosmetic": "head_stalagmite_hat",
+                    "chance": 5
+                }
+            ],
+            "sprites": {
+                "idle": "spr_nothing",
+                "walk": "spr_nothing",
+                "windup": "spr_monster_stalagmite_purple_windup",
+                "attack": "spr_monster_stalagmite_purple_attack",
+                "tired": "spr_monster_stalagmite_purple_tired",
+                "flee": "spr_monster_stalagmite_purple_flee",
+                "hurt": "spr_monster_stalagmite_purple_hurt",
+                "dying": "spr_monster_stalagmite_purple_hurt",
+                "misc": {
+                    "ground_walk": "spr_monster_stalagmite_ground_purple_walk",
+                    "ground_windup": "spr_monster_stalagmite_ground_purple_windup",
+                    "ground_attack": "spr_monster_stalagmite_ground_purple_attack",
+                    "ground_flee": "spr_monster_stalagmite_ground_purple_flee",
+                    "giblits": "spr_part_rockclod_purple_projectile",
+                    "secondary_ground_windup": "spr_monster_stalagmite_purple_secondary_ground_windup",
+                    "secondary_spike_windup": "spr_monster_stalagmite_purple_secondary_main_windup",
+                    "secondary_ground_attack": "spr_monster_stalagmite_purple_secondary_ground_attack",
+                    "secondary_spike_attack": "spr_monster_stalagmite_purple_secondary_main_attack",
+                    "secondary_ground_tired": "spr_monster_stalagmite_purple_secondary_ground_tired",
+                    "secondary_spike_tired": "spr_monster_stalagmite_purple_secondary_main_tired"
+                }
+            }
+        },
+        "celines_house": {
+            "hp": 1,
+            "damage": 100,
+            "essence": 15,
+            "speed": 8,
+            "coin_count": [
+                5,
+                10
+            ],
+            "secondary_spikes": false,
+            "hitbox": "spr_town_building_celine_spring",
+            "hurtbox": "spr_town_building_celine_spring",
+            "drops": [
+                {
+                    "item": "ore_gold",
+                    "chance": 70,
+                    "count_range": [
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "item": "monster_horn",
+                    "chance": 30,
+                    "count_range": [
+                        1,
+                        3
+                    ]
+                },
+                {
+                    "cosmetic": "head_stalagmite_hat",
+                    "chance": 5
+                }
+            ],
+            "sprites": {
+                "idle": "spr_nothing",
+                "walk": "spr_nothing",
+                "windup": "spr_monster_stalagmite_purple_windup",
+                "attack": "spr_town_building_celine_spring",
+                "tired": "spr_town_building_celine_spring",
+                "flee": "spr_town_building_celine_spring",
+                "hurt": "spr_town_building_celine_spring",
+                "dying": "spr_town_building_celine_spring",
+                "misc": {
+                    "ground_walk": "spr_monster_stalagmite_ground_purple_walk",
+                    "ground_windup": "spr_monster_stalagmite_ground_purple_windup",
+                    "ground_attack": "spr_monster_stalagmite_ground_purple_attack",
+                    "ground_flee": "spr_monster_stalagmite_ground_purple_flee",
+                    "giblits": "spr_part_rockclod_purple_projectile",
+                    "secondary_ground_windup": "spr_monster_stalagmite_purple_secondary_ground_windup",
+                    "secondary_spike_windup": "spr_monster_stalagmite_purple_secondary_main_windup",
+                    "secondary_ground_attack": "spr_monster_stalagmite_purple_secondary_ground_attack",
+                    "secondary_spike_attack": "spr_monster_stalagmite_purple_secondary_main_attack",
+                    "secondary_ground_tired": "spr_monster_stalagmite_purple_secondary_ground_tired",
+                    "secondary_spike_tired": "spr_monster_stalagmite_purple_secondary_main_tired"
+                }
+            }
+        },
+    },
     "mushroom": {
         "tankshroom": {
-            "hp": 24,
+            "hp": 96,
             "damage": 15,
             "essence": 5,
             "coin_count": [
@@ -189,7 +881,9 @@ var monsterPresets = {
                 }
             },
             "push_force": 100,
-            "ari_bounce_distance": 100
+            "ari_bounce_distance": 100,
+            "windup_friction": 5,
+            "windup": [5, 10]
         }
     },
     "mushroom_green": {},
@@ -588,7 +1282,103 @@ var monsterPresets = {
             "whistle_frame": 1
         }
     },
-    "cat": {},
+    "cat": {
+        "cursed_cat": {
+            "hp": 120,
+            "damage": 35,
+            "essence": 15,
+            "coin_count": [
+                6,
+                10
+            ],
+            "aggro_radius": 384,
+            "charge_range": 64,
+            "attack_movement_speed": 6,
+            "attack_movement_deccel": 0.2,
+            "attack_movement_gate": 2,
+            "attack_movement_gate_deccel": 0.2,
+            "attack_stall_duration": [
+                60,
+                60
+            ],
+            "drops": [
+                {
+                    "item": "glass",
+                    "chance": 70,
+                    "count_range": [
+                        3,
+                        5
+                    ]
+                },
+                {
+                    "item": "ore_stone",
+                    "chance": 70,
+                    "count_range": [
+                        3,
+                        5
+                    ]
+                },
+                {
+                    "item": "obsidian",
+                    "chance": 30,
+                    "count_range": [
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "cosmetic": "head_lava_cat_hat",
+                    "chance": 5
+                }
+            ],
+            "sprites": {
+                "idle": {
+                    "north": "spr_monster_cat_main_idle_north",
+                    "south": "spr_monster_cat_main_idle_south"
+                },
+                "acknowledgment": {
+                    "north": "spr_monster_cat_main_acknowledgement_north",
+                    "south": "spr_monster_cat_main_acknowledgement_south"
+                },
+                "walk": {
+                    "north": "spr_monster_cat_main_walk_north",
+                    "south": "spr_monster_cat_main_walk_south"
+                },
+                "windup": {
+                    "north": "spr_monster_cat_main_windup_north",
+                    "south": "spr_monster_cat_main_windup_south"
+                },
+                "attack": {
+                    "north": "spr_monster_cat_main_attack_north",
+                    "south": "spr_monster_cat_main_attack_south"
+                },
+                "hurt": {
+                    "north": "spr_monster_cat_main_hurt_north",
+                    "south": "spr_monster_cat_main_hurt_south"
+                },
+                "dying": {
+                    "north": "spr_monster_cat_main_hurt_north",
+                    "south": "spr_monster_cat_main_hurt_south"
+                },
+                "tired": {
+                    "north": "spr_monster_cat_main_idle_north",
+                    "south": "spr_monster_cat_main_idle_south"
+                },
+                "misc": {
+                    "rock_particle": "spr_part_rockclod_projectile",
+                    "lava_bits": "spr_part_lava_cat_bits_lava",
+                    "lava_bits_transition": "spr_part_lava_cat_bits_transition",
+                    "lava_bits_stone": "spr_part_lava_cat_bits_stone",
+                    "petrified_hurt_north": "spr_monster_cat_petrified_attack_north",
+                    "petrified_hurt_south": "spr_monster_cat_petrified_attack_south"
+                },
+                "petrified": {
+                    "north": "spr_monster_cat_petrified_walk_north",
+                    "south": "spr_monster_cat_petrified_walk_south"
+                }
+            }
+        }
+    },
     "mimic": {},
     "enchantern": {},
     "enchantern_blue": {},
@@ -1292,4 +2082,13 @@ var monsterPresets = {
     "mistrilclod": {}
 }
 
-export { monsterPresets }
+var presetGifs = {
+    "bomberclod":"https://i.imgur.com/hWde7H8.gif",
+    "hellspirit":"https://i.imgur.com/PBQj4KD.gif",
+    "ninja":"https://i.imgur.com/ifSwFZX.gif",
+    "sapma":"https://i.imgur.com/M8XQpJa.gif",
+    "suicideclod":"https://i.imgur.com/abluHU3.gif",
+    "hayden":"https://i.imgur.com/VlS6iBd.gif"
+}
+
+export { monsterPresets, presetGifs }
