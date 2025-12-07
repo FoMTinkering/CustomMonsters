@@ -39,6 +39,11 @@ selector.appendChild(monsterSelector);
 const presetSelector = document.createElement("select");
 presetSelector.size = 1;
 presetSelector.id = "preset-select";
+presetSelector.addEventListener("change", () => setTimeout(() => {
+    var preset = presetSelector.value;
+    if (Object.keys(presetGifs).includes(preset))
+        monsterGif.src = presetGifs[preset];
+}, 10));
 // presetSelector.addEventListener("change", () => setTimeout(() => updatePresetSelector(), 10));
 presets.appendChild(presetSelector);
 
@@ -113,9 +118,6 @@ function updatePresetSelector() {
     for (var preset of Object.keys(availableMonsters[monster])) {
         var option = document.createElement("option");
         option.value = preset;
-        option.addEventListener("click", () => {
-            monsterGif.src = presetGifs[preset];
-        });
         if (confirmedChoices[monster] == preset)
             option.style.backgroundColor = "#cfffa482";
         option.innerHTML = preset;
