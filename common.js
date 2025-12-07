@@ -41,8 +41,10 @@ presetSelector.size = 1;
 presetSelector.id = "preset-select";
 presetSelector.addEventListener("change", () => setTimeout(() => {
     var preset = presetSelector.value;
-    if (Object.keys(presetGifs).includes(preset))
-        monsterGif.src = presetGifs[preset];
+    if (Object.keys(presetGifs).includes(preset)) {
+        console.log(presets)
+        console.log(presetGifs[preset]);
+    }
 }, 10));
 // presetSelector.addEventListener("change", () => setTimeout(() => updatePresetSelector(), 10));
 presets.appendChild(presetSelector);
