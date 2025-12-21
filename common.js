@@ -82,10 +82,12 @@ const displayButton = document.getElementById("displaymode")
 displayButton.addEventListener("click", () => switchDisplay(displayButton))
 
 const modZipButton = document.createElement("button");
+const modZipLink = document.createElement("a");
 modZipButton.id = "mod-zip-button";
 modZipButton.innerHTML = "Download Mod Folder(if you don't have it already)";
-modZipButton.addEventListener("click", () => exportZip())
-
+modZipLink.href = "https://github.com/FoMTinkering/CustomMonsters/releases/download/v1.0/CustomMonsters.zip"
+modZipButton.addEventListener("click", () => modZipLink.click())
+selector.appendChild(modZipButton)
 
 const availableMonsters = monsterPresets;
 Object.keys(availableMonsters).forEach((monster) => {
@@ -190,5 +192,3 @@ function recolorPresets() {
         })
     }
 }
-
-function exportZip() {}
