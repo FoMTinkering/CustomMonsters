@@ -84,7 +84,7 @@ displayButton.addEventListener("click", () => switchDisplay(displayButton))
 const modZipButton = document.createElement("button");
 const modZipLink = document.createElement("a");
 modZipButton.id = "mod-zip-button";
-modZipButton.innerHTML = "Download Mod Folder(if you don't have it already)";
+modZipButton.innerHTML = "Download Mod Folder (if you don't have it already)";
 modZipLink.href = "https://github.com/FoMTinkering/CustomMonsters/releases/download/v1.0/CustomMonsters.zip"
 modZipButton.addEventListener("click", () => modZipLink.click())
 selector.appendChild(modZipButton)
